@@ -5,8 +5,92 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CamFootprintTester"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="550" Width="617.846">
     <Grid>
-        
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="300" Margin="29,200,0,0" VerticalAlignment="Top" Width="300">
+            <Polygon Name="footprint"
+                     HorizontalAlignment="Center"
+                     VerticalAlignment="Center"
+                     Height="300"
+                     Width="300"
+                     Points="150,150 300,200 200,150"
+                     Fill="Red"
+                     Stretch="None"
+                     StrokeThickness="2" />
+        </Border>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="190" Margin="363,34,0,0" VerticalAlignment="Top" Width="240">
+            <StackPanel Margin="10" VerticalAlignment="Center">
+                <DockPanel VerticalAlignment="Center" Margin="10">
+                    <Label DockPanel.Dock="Left" FontWeight="Bold">Roll:</Label>
+                    <TextBox Text="{Binding ElementName=acRoll, Path=Value, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Right" TextAlignment="Right" Width="40" />
+                    <Slider Maximum="180" Value="0" Minimum="-180"  TickPlacement="BottomRight" TickFrequency="5" IsSnapToTickEnabled="True" Name="acRoll" ValueChanged="SliderValueChanged" />
+                </DockPanel>
+
+                <DockPanel VerticalAlignment="Center" Margin="10">
+                    <Label DockPanel.Dock="Left" FontWeight="Bold">Pitch:</Label>
+                    <TextBox Text="{Binding ElementName=acPitch, Path=Value, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Right" TextAlignment="Right" Width="40" />
+                    <Slider Maximum="180" Value="0" Minimum="-180"  TickPlacement="BottomRight" TickFrequency="5" IsSnapToTickEnabled="True" Name="acPitch" ValueChanged="SliderValueChanged" />
+                </DockPanel>
+
+                <DockPanel VerticalAlignment="Center" Margin="10">
+                    <Label DockPanel.Dock="Left" FontWeight="Bold">Yaw:</Label>
+                    <TextBox Text="{Binding ElementName=acYaw, Path=Value, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Right" TextAlignment="Right" Width="40" />
+                    <Slider Maximum="180" Value="0" Minimum="-180" TickPlacement="BottomRight" TickFrequency="5" IsSnapToTickEnabled="True" Name="acYaw" ValueChanged="SliderValueChanged" />
+                </DockPanel>
+
+                <DockPanel VerticalAlignment="Center" Margin="10">
+                    <Label DockPanel.Dock="Left" FontWeight="Bold">Height:</Label>
+                    <TextBox Text="{Binding ElementName=acHeight, Path=Value, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Right" TextAlignment="Right" Width="40" />
+                    <Slider Maximum="100" Value="0" Minimum="0" TickPlacement="BottomRight" TickFrequency="5" IsSnapToTickEnabled="True" Name="acHeight" ValueChanged="SliderValueChanged" />
+                </DockPanel>
+
+            </StackPanel>
+        </Border>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="149" Margin="363,263,0,0" VerticalAlignment="Top" Width="240" RenderTransformOrigin="-0.167,0.157">
+            <StackPanel Margin="10" VerticalAlignment="Center">
+                <DockPanel VerticalAlignment="Center" Margin="10">
+                    <Label DockPanel.Dock="Left" FontWeight="Bold">Roll:</Label>
+                    <TextBox Text="{Binding ElementName=gimRoll, Path=Value, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Right" TextAlignment="Right" Width="40" />
+                    <Slider Maximum="180" Value="0" Minimum="-180"  TickPlacement="BottomRight" TickFrequency="5" IsSnapToTickEnabled="True" Name="gimRoll" ValueChanged="SliderValueChanged" />
+                </DockPanel>
+
+                <DockPanel VerticalAlignment="Center" Margin="10">
+                    <Label DockPanel.Dock="Left" FontWeight="Bold">Pitch:</Label>
+                    <TextBox Text="{Binding ElementName=gimPitch, Path=Value, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Right" TextAlignment="Right" Width="40" />
+                    <Slider Maximum="180" Value="0" Minimum="-180"  TickPlacement="BottomRight" TickFrequency="5" IsSnapToTickEnabled="True" Name="gimPitch" ValueChanged="SliderValueChanged" />
+                </DockPanel>
+
+                <DockPanel VerticalAlignment="Center" Margin="10">
+                    <Label DockPanel.Dock="Left" FontWeight="Bold">Yaws</Label>
+                    <TextBox Text="{Binding ElementName=gimYaw, Path=Value, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Right" TextAlignment="Right" Width="40" />
+                    <Slider Maximum="180" Value="0" Minimum="-180" TickPlacement="BottomRight" TickFrequency="5" IsSnapToTickEnabled="True" Name="gimYaw" ValueChanged="SliderValueChanged" />
+                </DockPanel>
+            </StackPanel>
+        </Border>
+        <Label Content="Aircraft:" HorizontalAlignment="Left" Margin="363,10,0,0" VerticalAlignment="Top" Width="150"/>
+        <Label Content="Gimbal:" HorizontalAlignment="Left" Margin="363,233,0,0" VerticalAlignment="Top" Width="98"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="151" Margin="29,34,0,0" VerticalAlignment="Top" Width="300">
+            <StackPanel Margin="10" VerticalAlignment="Center">
+                <DockPanel VerticalAlignment="Center" Margin="10">
+                    <Label DockPanel.Dock="Left" FontWeight="Bold">VFV:</Label>
+                    <TextBox Text="{Binding ElementName=vfv, Path=Value, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Right" TextAlignment="Right" Width="40" />
+                    <Slider Maximum="180" Value="30" Minimum="0"  TickPlacement="BottomRight" TickFrequency="5" IsSnapToTickEnabled="True" Name="vfv" ValueChanged="SliderValueChanged" />
+                </DockPanel>
+
+                <DockPanel VerticalAlignment="Center" Margin="10">
+                    <Label DockPanel.Dock="Left" FontWeight="Bold">HFV:</Label>
+                    <TextBox Text="{Binding ElementName=hfv, Path=Value, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Right" TextAlignment="Right" Width="40" />
+                    <Slider Maximum="180" Value="60" Minimum="0"  TickPlacement="BottomRight" TickFrequency="5" IsSnapToTickEnabled="True" Name="hfv" ValueChanged="SliderValueChanged" />
+                </DockPanel>
+
+                <DockPanel VerticalAlignment="Center" Margin="10">
+                    <Label DockPanel.Dock="Left" FontWeight="Bold">Angle Limit:</Label>
+                    <TextBox Text="{Binding ElementName=anglelimit, Path=Value, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Right" TextAlignment="Right" Width="40" />
+                    <Slider Maximum="90" Value="90" Minimum="0"  TickPlacement="BottomRight" TickFrequency="5" IsSnapToTickEnabled="True" Name="anglelimit" ValueChanged="SliderValueChanged" />
+                </DockPanel>
+            </StackPanel>
+        </Border>
+        <Label Content="Field of View and Angle Limiter:" HorizontalAlignment="Left" Margin="29,10,0,0" VerticalAlignment="Top" Width="216"/>
+
     </Grid>
 </Window>
