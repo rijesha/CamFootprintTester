@@ -22,10 +22,10 @@ namespace CamFootprintTester
                 pitch = Radians(pitch);
                 yaw = Radians(yaw);
             }
-            double cy = Math.Cos(yaw * 0.5);
-            double sy = Math.Sin(yaw * 0.5);
-            double cr = Math.Cos(roll * 0.5);
-            double sr = Math.Sin(roll * 0.5);
+            double cy = Math.Cos(-yaw * 0.5);
+            double sy = Math.Sin(-yaw * 0.5);
+            double cr = Math.Cos(-roll * 0.5);
+            double sr = Math.Sin(-roll * 0.5);
             double cp = Math.Cos(pitch * 0.5);
             double sp = Math.Sin(pitch * 0.5);
 

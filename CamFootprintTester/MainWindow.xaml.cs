@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media;
 
 namespace CamFootprintTester
@@ -35,11 +36,11 @@ namespace CamFootprintTester
         private void genNewFootprint()
         {
 
-            var TR = new Quaternion( hfv.Value / 2,  vfv.Value / 2, 0, true);
-            var TL = new Quaternion(-hfv.Value / 2,  vfv.Value / 2, 0, true);
-            var BR = new Quaternion( hfv.Value / 2, -vfv.Value / 2, 0, true);
-            var BL = new Quaternion(-hfv.Value / 2, -vfv.Value / 2, 0, true);
-            
+            var TR = new Quaternion(-hfv.Value / 2,  vfv.Value / 2, 0, true);
+            var TL = new Quaternion( hfv.Value / 2,  vfv.Value / 2, 0, true);
+            var BR = new Quaternion(-hfv.Value / 2, -vfv.Value / 2, 0, true);
+            var BL = new Quaternion( hfv.Value / 2, -vfv.Value / 2, 0, true);
+           
             var gimRot = new Quaternion(gimRoll.Value, gimPitch.Value, gimYaw.Value, true);
             var acRot = new Quaternion(acRoll.Value, acPitch.Value, acYaw.Value, true);
 
@@ -55,7 +56,15 @@ namespace CamFootprintTester
             pc.Add(getPointOnGround(TL1));
             pc.Add(getPointOnGround(BL1));
             pc.Add(getPointOnGround(BR1));
-            footprint.Points = bindToViewerDimensions(pc);
+            var boundPc = bindToViewerDimensions(pc);
+            footprint.Points = boundPc;
+
+            Canvas.SetLeft(toprightcorner, boundPc[0].X - (toprightcorner.Width / 2));
+            Canvas.SetTop(toprightcorner, boundPc[0].Y - (toprightcorner.Height / 2));
+
+            Canvas.SetLeft(topleftcorner, boundPc[1].X - (topleftcorner.Width / 2));
+            Canvas.SetTop(topleftcorner, boundPc[1].Y - (topleftcorner.Height / 2));
+
         }
 
         private Point getPointOnGround(Quaternion q)

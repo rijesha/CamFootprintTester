@@ -8,7 +8,8 @@
         Title="MainWindow" Height="550" Width="617.846">
     <Grid>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="300" Margin="29,200,0,0" VerticalAlignment="Top" Width="300">
-            <Polygon Name="footprint"
+            <Canvas Name="Viewer">
+                <Polygon Name="footprint"
                      HorizontalAlignment="Center"
                      VerticalAlignment="Center"
                      Height="300"
@@ -17,6 +18,11 @@
                      Fill="Red"
                      Stretch="None"
                      StrokeThickness="2" />
+                <Ellipse Name="toprightcorner" Fill="Blue" Height="10" Canvas.Left="241" StrokeThickness="2" Canvas.Top="55" Width="10"/>
+                <Ellipse Name="topleftcorner" Fill="Yellow" Height="10" Canvas.Left="241" StrokeThickness="2" Canvas.Top="55" Width="10"/>
+
+            </Canvas>
+
         </Border>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="190" Margin="363,34,0,0" VerticalAlignment="Top" Width="240">
             <StackPanel Margin="10" VerticalAlignment="Center">
